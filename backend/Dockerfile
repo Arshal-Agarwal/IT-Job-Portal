@@ -8,7 +8,7 @@ RUN npm i
 
 COPY . .
 
-COPY .env.docker /app/.env
+COPY docker.env /app/.env
 
 FROM node:22-alpine 
 
