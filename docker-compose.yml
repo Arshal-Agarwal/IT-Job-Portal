@@ -1,0 +1,41 @@
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - it-job-portal
+    restart: unless-stop
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - it-job-portal
+    restart: unless-stop
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: backend
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    networks:
+      - it-job-portal
+    volumes:
+      - myVol:/data/db
+    restart: unless-stop
+
+networks:
+  it-job-portal:
+    driver: bridge
+
+volumes:
+  myVol:
+    driver: local

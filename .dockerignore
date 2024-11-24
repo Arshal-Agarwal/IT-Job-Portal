@@ -1,0 +1,29 @@
+# Ignore sensitive environment files
+/backend/.env
+
+# Ignore log files
+*.log
+**/*.log
+
+# Ignore node_modules (for frontend or backend using Node.js)
+node_modules/
+**/node_modules/
+
+# Ignore OS and IDE files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Ignore build artifacts
+build/
+dist/
+*.out
+
+# Ignore version control folders
+.git/
+.hg/
+.svn/
+
+# Ignore Docker-related files that aren't required
+docker-compose.override.yml
